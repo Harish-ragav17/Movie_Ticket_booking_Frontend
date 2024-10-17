@@ -1,0 +1,47 @@
+.timings-container{
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+   justify-content: space-around;
+}
+.timings
+{
+  padding: 20px;
+  border: 1px solid black;
+  width: fit-content;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 19px;
+}
+.timings:hover
+{
+  box-shadow: 0px 0px 3px 1px  black;
+}
+
+#seats-container
+{
+  display: flex;
+  padding: 50px;
+}
+
+.seat{
+  padding: 20px;
+  background-color: azure;
+  border: 1px solid black;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.seat-booked{
+  padding: 20px;
+  background-color: rgb(220, 0, 0);
+  border: 1px solid black;
+  margin-right: 10px;
+  cursor:not-allowed;
+}
+
+.seat-clicked{
+  background-color:green;
+}

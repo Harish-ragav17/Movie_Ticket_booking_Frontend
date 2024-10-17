@@ -1,0 +1,19 @@
+#bookings{
+  width: 100%;
+}
+#list{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 30px;
+    gap: 20px;
+}
+.cards{
+    border: 2px solid black;
+}
+#cancel-ticket
+{
+  padding: 7px;
+  background-color: rgb(206, 76, 76);
+  border: none;
+}
