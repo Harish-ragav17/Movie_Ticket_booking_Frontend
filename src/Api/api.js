@@ -1,6 +1,6 @@
 import axios from "axios";
 // const url = 'http://localhost:4000';
-const url = 'https://ticketbooking-moviesnow.netlify.app/';
+const url = 'https://movie-ticket-booking-backend-mblk.onrender.com';
 
 
 const getMovies=async(setMovies)=>{
