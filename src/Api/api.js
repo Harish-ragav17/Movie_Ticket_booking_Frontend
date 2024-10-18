@@ -1,5 +1,5 @@
 import axios from "axios";
-// const url = 'http://localhost:4000';
+//const url = 'http://localhost:4000';
 const url = 'https://movie-ticket-booking-backend-mblk.onrender.com';
 
 
@@ -17,18 +17,21 @@ const getMovies=async(setMovies)=>{
 }
 
 
-const getTimings=async(setTiming1,setTiming2,setTiming3,id)=>{
+const getTimings=async(setTiming1,setTiming2,setTiming3,id,setDataFetched)=>{
     try{
            await axios.post(`${url}/getTiming1`,{id}).then((data)=>{
               setTiming1(data.data);
+              setDataFetched(true);
            })
 
            await axios.post(`${url}/getTiming2`,{id}).then((data)=>{
              setTiming2(data.data);
+             setDataFetched(true);
         })
 
         await axios.post(`${url}/getTiming3`,{id}).then((data)=>{
             setTiming3(data.data);
+            setDataFetched(true);
         })
     }
     catch(err)
