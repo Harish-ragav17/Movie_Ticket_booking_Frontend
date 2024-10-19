@@ -99,15 +99,17 @@ const updateSeats = async(id,seats,did) =>
 }
 
 
-const signin = async(email,password,setloggedInId,setLoggedIn,setError) => {
+const signin = async(email,password,setloggedInId,setLoggedIn,setError,setLoading) => {
     await axios.post(`${url}/signin`,{email:email,password:password}).then((data)=>{
         if(data.data == "Wrong password")
         {
             setError("Wrong Password");
+            setLoading(false);
         }
         else if ( data.data == "User not found")
         {
             setError("User Not Found");
+            setLoading(false);
         }
         else
         {
@@ -116,6 +118,7 @@ const signin = async(email,password,setloggedInId,setLoggedIn,setError) => {
             setLoggedIn(true);
             localStorage.setItem("user",data.data);
             localStorage.setItem("loggedinTime",currentDate)
+            setLoading(false)
         }
     })
 }
