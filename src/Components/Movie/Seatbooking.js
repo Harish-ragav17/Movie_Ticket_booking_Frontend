@@ -15,14 +15,14 @@ const Seatbooking = ({ timing1, timing2, timing3 , selected ,loggedInId , setRel
     return Object.keys(obj).length === 0;
   };
 
-  useEffect(()=>{
+  // useEffect(()=>{
 
-    if(!id ||isEmpty(timing1)||isEmpty(timing2) ||isEmpty(timing3))
-    {
-        navigate(-1);
-        window.location.reload();
-    }
-  },[])
+  //   if(!id ||isEmpty(timing1)||isEmpty(timing2) ||isEmpty(timing3))
+  //   {
+  //       navigate(-1);
+  //       window.location.reload();
+  //   }
+  // },[])
 
   React.useEffect(() => {
     if (id === "1") {
