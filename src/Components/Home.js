@@ -6,9 +6,10 @@ import { getMovies }  from '../Api/api.js'
 
 const Home = ({setSelected}) => {
   const [movies,setMovies] = useState([]);
+  const [homedata,setHomeData] = useState(false);
 
   useEffect(()=>{
-     getMovies(setMovies);
+     getMovies(setMovies,setHomeData);
   },[setMovies])
 
   return (
@@ -20,19 +21,33 @@ const Home = ({setSelected}) => {
       </div>
       <div id='movieslist'>
            <div class='movieslist-container'>
-            {movies.map((movie)=>
-                      <div className='cards'>
-                      <img src={raayan} className='img'/>
-                      <h2>
-                        {movie.name}
-                      </h2>
-                      <Link to={`/timings/${movie._id}`}>
-                        <input type='submit' value="Book Now" />
-                      </Link>
-                      </div>
-            )}
+            {
+              !homedata ?
+              (
+                 <>
+                  <div id='spinner'>
+  
+                  </div>
+                 </>
+              )
+              :
+              (
+                  movies.map((movie)=>
+                    <div className='cards'>
+                    <img src={raayan} className='img'/>
+                    <h2>
+                      {movie.name}
+                    </h2>
+                    <Link to={`/timings/${movie._id}`}>
+                      <input type='submit' value="Book Now" />
+                    </Link>
+                    </div>
+                  )
+              )
+            }
             
-           </div>
+            
+           </div> 
       </div>
     </div>
   )

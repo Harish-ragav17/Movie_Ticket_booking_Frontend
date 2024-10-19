@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../../Styles/movie.css';
 import { useParams } from 'react-router-dom';
 import { updateSeats, updateSeatsTemp, updateUserBookings } from '../../Api/api';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const Seatbooking = ({ timing1, timing2, timing3 , selected ,loggedInId , setReload}) => {
   const { id } = useParams();
@@ -10,10 +10,10 @@ const Seatbooking = ({ timing1, timing2, timing3 , selected ,loggedInId , setRel
   const [seats, setSeats] = useState([]); 
   const [d, setD] = useState(-1);
   
-  const navigate = useNavigate();
-  const isEmpty = (obj) => {
-    return Object.keys(obj).length === 0;
-  };
+  // const navigate = useNavigate();
+  // const isEmpty = (obj) => {
+  //   return Object.keys(obj).length === 0;
+  // };
 
   // useEffect(()=>{
 
@@ -39,7 +39,6 @@ const Seatbooking = ({ timing1, timing2, timing3 , selected ,loggedInId , setRel
 
   const toggleSeat = (index, booked) => {
     if (booked) return; 
-    console.log(seats)
 
     const newseats = seats.map((seat, i) => {
       if (i === index) {

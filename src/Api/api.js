@@ -3,10 +3,11 @@ import axios from "axios";
 const url = 'https://movie-ticket-booking-backend-mblk.onrender.com';
 
 
-const getMovies=async(setMovies)=>{
+const getMovies=async(setMovies,setHomeData)=>{
      try{
             await axios.get(`${url}/allMovies`).then((data)=>{
                 setMovies(data.data);
+                setHomeData(true);
             })
             
      }
