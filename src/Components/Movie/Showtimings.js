@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import '../../Styles/movie.css'
 import { getTimings } from '../../Api/api.js';
 
-const Showtimings = ({timing1,setTiming1,setTiming2,setTiming3,setSelected}) => {
+const Showtimings = ({timing1,setTiming1,setTiming2,setTiming3,setSelected,reload,setReload}) => {
   const {id} = useParams();
   const [dataFetched,setDataFetched] = useState(false);
-  
+
   useEffect(()=>{
     getTimings(setTiming1,setTiming2,setTiming3,id,setDataFetched);
     setSelected(id);
-  })
+  },[])
   
   return (
     <div>

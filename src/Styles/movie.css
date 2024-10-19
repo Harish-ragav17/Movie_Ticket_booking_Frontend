@@ -24,6 +24,7 @@ a{
 {
   display: flex;
   padding: 50px;
+  justify-content: center;
 }
 
 .seat{

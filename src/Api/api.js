@@ -111,9 +111,11 @@ const signin = async(email,password,setloggedInId,setLoggedIn,setError) => {
         }
         else
         {
-            console.log(data.data)
+            const currentDate = new Date().toISOString(); 
             setloggedInId(data.data);
             setLoggedIn(true);
+            localStorage.setItem("user",data.data);
+            localStorage.setItem("loggedinTime",currentDate)
         }
     })
 }

@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../Styles/movie.css';
 import { useParams } from 'react-router-dom';
 import { updateSeats, updateSeatsTemp, updateUserBookings } from '../../Api/api';
+import { useNavigate } from 'react-router-dom';
 
-const Seatbooking = ({ timing1, timing2, timing3 , selected ,loggedInId}) => {
+const Seatbooking = ({ timing1, timing2, timing3 , selected ,loggedInId , setReload}) => {
   const { id } = useParams();
   const [selectedSeats, setSelectedSeats] = useState([]); 
   const [seats, setSeats] = useState([]); 
   const [d, setD] = useState(-1);
   
+  const navigate = useNavigate();
+  const isEmpty = (obj) => {
+    return Object.keys(obj).length === 0;
+  };
+
+  useEffect(()=>{
+
+    if(!id ||isEmpty(timing1)||isEmpty(timing2) ||isEmpty(timing3))
+    {
+        navigate(-1);
+        window.location.reload();
+    }
+  },[])
+
   React.useEffect(() => {
     if (id === "1") {
       setSeats(timing1.seats);
@@ -66,7 +81,9 @@ const Seatbooking = ({ timing1, timing2, timing3 , selected ,loggedInId}) => {
 
   return (
     <div>
+      <h2 style={{textAlign:"center",color:"red"}}>Do not reload this page..!</h2>
       <div id='seats-container'>
+        
         {seats.map((seat, index) => (
           (seat)?
           <div

@@ -9,7 +9,6 @@ const Home = ({setSelected}) => {
 
   useEffect(()=>{
      getMovies(setMovies);
-     
   },[setMovies])
 
   return (
